@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ReportDemo.Models.Customers>
+
+@{
+    ViewBag.Title = "CustomersList";
+}
+
+<h2>客戶清單</h2>
+
+@Html.ActionLink("匯出Excel", "Reports", new { ReportType = "Excel" })|
+@Html.ActionLink("匯出PDF", "Reports", new { ReportType = "PDF" })|
+@Html.ActionLink("匯出Word", "Reports", new { ReportType = "Word" })|
+@Html.ActionLink("匯出Image", "Reports", new { ReportType = "Image" })|
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+
+        </tr>
+    }
+
+</table>
